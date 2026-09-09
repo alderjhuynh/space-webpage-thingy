@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Name here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Example Project</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,29 +11,63 @@
 </head>
 <body>
 
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-ring"></div>
+    <div class="loader-text serif">Loading...</div>
+    <div class="loader-sub">System 1 · System 2 · Sol</div>
+  </div>
+</div>
+
 <div class="app">
   <header class="nav">
     <div class="brand">
-      <span class="wordmark serif">Name</span>
-      <span class="tagline">tagline</span>
+      <span class="wordmark serif">Example Project</span>
+      <span class="tagline">Example tagline</span>
     </div>
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle codex">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <button class="nav-btn" id="galaxyBtn" title="Galaxy view">◉ Galaxy</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle panel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <div class="body-row">
     <aside class="info" id="infoPanel">
+
+      <div id="breadcrumbs" class="breadcrumbs"></div>
+      <div class="search-row">
+        <input id="searchInput" type="text" placeholder="Search..." autocomplete="off" />
+        <button id="factionToggle" class="tiny-toggle" title="Toggle faction overlay">⚑ factions</button>
+      </div>
+      <div id="panelContent"></div>
+
+      <div id="timelineWrap" class="timeline-wrap hidden">
+        <div class="timeline-header">
+          <span class="timeline-label serif">Timeline</span>
+          <span id="timelineYear" class="timeline-year"></span>
+        </div>
+        <input type="range" id="timeScrub" min="0" max="100" value="100" />
+        <div id="timelineEvents" class="timeline-events"></div>
+      </div>
+
     </aside>
 
     <main class="stage" id="stage">
       <canvas id="scene"></canvas>
-      <div class="hint" id="hint">hehehe</div>
+      <div id="labelOverlay" class="label-overlay"></div>
+      <div class="hint" id="hint">click a body to focus, drag to orbit, scroll or pinch to zoom</div>
+      <div id="galaxyHint" class="hint hidden" style="bottom:48px">galaxy view: click a star to warp</div>
     </main>
   </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="data/system-helion.js"></script>
+<script src="data/system-auralis.js"></script>
+<script src="data/system-sol.js"></script>
+<script src="data/galaxy.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
