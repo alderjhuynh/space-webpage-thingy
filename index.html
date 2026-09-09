@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Name here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+  <header class="nav">
+    <div class="brand">
+      <span class="wordmark serif">Name</span>
+      <span class="tagline">tagline</span>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle codex">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="body-row">
+    <aside class="info" id="infoPanel">
+    </aside>
+
+    <main class="stage" id="stage">
+      <canvas id="scene"></canvas>
+      <div class="hint" id="hint">hehehe</div>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

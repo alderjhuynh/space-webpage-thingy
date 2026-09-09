@@ -1,0 +1,107 @@
+:root{
+  --bg:#0a0b13;
+  --panel: rgba(18,19,34,0.6);
+  --line: rgba(234,232,245,0.1);
+  --text:#eae8f5;
+  --muted:#8a89a3;
+  --accent:#9b81e8;
+  --gold:#f2b25c;
+}
+*{ box-sizing:border-box; }
+html, body{
+  margin:0; height:100%; width:100%;
+  background:var(--bg); color:var(--text);
+  font-family:'Inter', system-ui, sans-serif;
+  overflow:hidden;
+}
+.serif{ font-family:'Spectral', Georgia, serif; }
+
+.app{ display:flex; flex-direction:column; height:100vh; }
+
+header.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 28px; border-bottom:1px solid var(--line);
+  flex-shrink:0; z-index:10; background:var(--bg);
+}
+.brand{ display:flex; flex-direction:column; line-height:1.1; }
+.brand .wordmark{ font-size:1.5rem; font-weight:500; letter-spacing:0.03em; }
+.brand .tagline{ font-size:0.72rem; color:var(--muted); margin-top:3px; font-family:'Inter',sans-serif; }
+.menu-btn{
+  display:none; flex-direction:column; justify-content:center; gap:4px;
+  width:34px; height:30px; background:none; border:none; cursor:pointer; padding:0;
+}
+.menu-btn span{ display:block; height:2px; width:100%; background:var(--muted); border-radius:2px; }
+
+.body-row{ flex:1; display:flex; min-height:0; }
+
+aside.info{
+  width:340px; flex-shrink:0; overflow-y:auto;
+  border-right:1px solid var(--line);
+  padding:28px 26px 40px;
+  background:var(--panel);
+  backdrop-filter: blur(6px);
+}
+aside.info::-webkit-scrollbar{ width:6px; }
+aside.info::-webkit-scrollbar-thumb{ background:var(--line); border-radius:3px; }
+
+.eyebrow-swatch{ width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:8px; flex-shrink:0; }
+
+h1.title{ font-size:1.7rem; font-weight:500; margin:0 0 10px; }
+p.lede{ color:var(--muted); font-size:0.92rem; line-height:1.6; margin:0 0 26px; }
+
+.body-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px; }
+.body-list button{
+  display:flex; align-items:center; width:100%; text-align:left;
+  background:none; border:none; color:var(--text); cursor:pointer;
+  padding:11px 8px; border-radius:6px; font-family:inherit; font-size:0.92rem;
+  transition: background 0.15s ease;
+}
+.body-list button:hover{ background:rgba(255,255,255,0.05); }
+.body-list .b-name{ font-family:'Spectral', serif; font-size:1rem; }
+.body-list .b-type{ display:block; color:var(--muted); font-size:0.76rem; margin-top:1px; }
+
+.back-link{
+  background:none; border:none; color:var(--muted); font-family:inherit;
+  font-size:0.82rem; cursor:pointer; padding:0 0 22px; display:flex; align-items:center; gap:6px;
+}
+.back-link:hover{ color:var(--text); }
+
+.tag{
+  display:inline-block; padding:4px 11px; border:1px solid var(--line);
+  border-radius:3px; font-size:0.75rem; color:var(--muted); margin-bottom:18px;
+}
+.lore p{ color:#c9c7db; font-size:0.9rem; line-height:1.7; margin:0 0 14px; }
+
+.stats{ margin-top:22px; border-top:1px solid var(--line); }
+.stat-row{
+  display:flex; justify-content:space-between; gap:12px;
+  padding:10px 0; border-bottom:1px solid var(--line); font-size:0.82rem;
+}
+.stat-row .k{ color:var(--muted); }
+.stat-row .v{ text-align:right; }
+
+main.stage{
+  flex:1; position:relative; min-width:0;
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(155,129,232,0.16), transparent 55%),
+    radial-gradient(ellipse at 80% 85%, rgba(242,178,92,0.09), transparent 55%),
+    var(--bg);
+}
+main.stage canvas{ position:absolute; inset:0; display:block; width:100%; height:100%; cursor:grab; }
+main.stage canvas.dragging{ cursor:grabbing; }
+
+.hint{
+  position:absolute; bottom:18px; left:50%; transform:translateX(-50%);
+  font-size:0.75rem; color:var(--muted); pointer-events:none;
+  letter-spacing:0.01em; opacity:0.8;
+}
+
+@media (max-width: 760px){
+  .menu-btn{ display:flex; }
+  aside.info{
+    position:absolute; top:0; bottom:0; left:0; z-index:20;
+    transform:translateX(-100%); transition: transform 0.25s ease;
+    width:82%; max-width:340px; box-shadow:20px 0 40px rgba(0,0,0,0.4);
+  }
+  aside.info.open{ transform:translateX(0); }
+}
