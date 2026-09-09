@@ -1087,11 +1087,18 @@
     renderer.render(scene, camera);
   }
 
-  buildSystemVisuals(SYSTEM_BY_ID[currentSystemId]);
-  setView('system');
-
-  if (location.hash) applyHash();
-  else syncHash();
+  if (location.hash) {
+    applyHash();
+    const sys = SYSTEM_BY_ID[currentSystemId];
+    const hasVisuals = !!(sys && activeBodies[sys.star.key]);
+    if (!hasVisuals && viewMode !== 'galaxy') {
+      buildSystemVisuals(SYSTEM_BY_ID[currentSystemId]);
+      setView('system');
+    }
+  } else {
+    buildSystemVisuals(SYSTEM_BY_ID[currentSystemId]);
+    setView('system');
+  }
   window.addEventListener('hashchange', applyHash);
 
   resize();
