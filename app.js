@@ -521,7 +521,8 @@
     lastX=e.clientX; lastY=e.clientY;
   });
   window.addEventListener('pointerup', e=>{
-    if (dragging && !moved && e.pointerType!=='touch') handleClick(e);
+    if (e.pointerType==='touch') return;
+    if (dragging && !moved) handleClick(e);
     dragging=false;
     canvas.classList.remove('dragging');
   });
@@ -641,11 +642,11 @@
   function warpToSystem(systemId){
     currentSystemId = systemId;
     buildSystemVisuals(SYSTEM_BY_ID[systemId]);
-
     camTheta = 0.9 + (Math.random()-0.5)*0.2;
     camPhi = 1.15;
     camRadius = camRadiusGoal + 30;
     setView('system');
+    infoPanel.classList.add('open');
   }
   galaxyBtn.addEventListener('click', ()=>{
     if (viewMode==='galaxy') setView('system');
@@ -849,6 +850,7 @@
     updateLabelsVisibility();
     hintEl.style.opacity='0';
     syncHash();
+    infoPanel.classList.add('open');
   }
   function clearFocus(){
     focusedKey=null; paused=false;
