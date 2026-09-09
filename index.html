@@ -15,7 +15,6 @@
   <div class="loader-inner">
     <div class="loader-ring"></div>
     <div class="loader-text serif">Loading...</div>
-    <div class="loader-sub">System 1 · System 2 · Sol</div>
   </div>
 </div>
 
@@ -26,7 +25,7 @@
       <span class="tagline">Example tagline</span>
     </div>
     <div class="nav-actions">
-      <button class="nav-btn" id="galaxyBtn" title="Galaxy view">◉ Galaxy</button>
+      <button class="nav-btn" id="galaxyBtn" title="Galaxy view">Galaxy</button>
       <button class="menu-btn" id="menuBtn" aria-label="Toggle panel">
         <span></span><span></span><span></span>
       </button>
@@ -39,7 +38,7 @@
       <div id="breadcrumbs" class="breadcrumbs"></div>
       <div class="search-row">
         <input id="searchInput" type="text" placeholder="Search..." autocomplete="off" />
-        <button id="factionToggle" class="tiny-toggle" title="Toggle faction overlay">⚑ factions</button>
+        <button id="factionToggle" class="tiny-toggle" title="Toggle faction overlay">factions</button>
       </div>
       <div id="panelContent"></div>
 
@@ -57,8 +56,8 @@
     <main class="stage" id="stage">
       <canvas id="scene"></canvas>
       <div id="labelOverlay" class="label-overlay"></div>
-      <div class="hint" id="hint">click a body to focus, drag to orbit, scroll or pinch to zoom</div>
-      <div id="galaxyHint" class="hint hidden" style="bottom:48px">galaxy view: click a star to warp</div>
+      <div class="hint" id="hint"></div>
+      <div id="galaxyHint" class="hint hidden" style="bottom:48px"></div>
     </main>
   </div>
 </div>
@@ -70,6 +69,14 @@
 <script src="data/system-castor.js"></script>
 <script src="data/blackhole-erebos.js"></script>
 <script src="data/galaxy.js"></script>
-<script src="app.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/visuals-system.js"></script>
+<script src="js/visuals-blackhole.js"></script>
+<script src="js/visuals-galaxy.js"></script>
+<script src="js/camera-controls.js"></script>
+<script src="js/view-navigation.js"></script>
+<script src="js/panel-ui.js"></script>
+<script src="js/router.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

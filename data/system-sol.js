@@ -103,7 +103,7 @@ const SYSTEM_SOL = {
     {
       key: 'earth',
       name: 'Earth',
-      type: 'rocky planet · habitable',
+      type: 'rocky planet',
       colorHex: '#4a8fe3',
       color: 0x4a8fe3,
       orbitRadius: 18.5,
